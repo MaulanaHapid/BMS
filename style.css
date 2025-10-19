@@ -1,0 +1,69 @@
+.map-responsive {
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    position: relative;
+    height: 0;
+}
+
+.map-responsive iframe {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+/* thumbnail */
+.thumb-list img {
+    cursor: pointer;
+    opacity: 0.8;
+    border: 2px solid transparent;
+    transition: border .2s, opacity .2s;
+    width: 90px;
+    height: 60px;
+    object-fit: cover;
+    box-sizing: border-box;
+    /* agar border tidak menambah ukuran total */
+    display: block;
+}
+
+.thumb-list img.active {
+    border: 2px solid #2563eb;
+    opacity: 1;
+}
+
+/* gambar utama */
+#main-image {
+    width: 100%;
+    max-width: 100%;
+    height: 300px;
+    /* tinggi tetap, ganti sesuai kebutuhan */
+    object-fit: cover;
+    /* crop agar tidak melebihi container */
+    display: block;
+}
+
+.card-title {
+    font-size: 1.5rem;
+}
+
+.map-responsive {
+  overflow: hidden; padding-bottom: 56.25%; position: relative; height: 0;
+}
+.map-responsive iframe {
+  left: 0; top: 0; height: 100%; width: 100%; position: absolute;
+}
+@media (max-width: 768px) {
+  .map-responsive iframe {height: 120px;}
+}
+
+@keyframes pulseScale {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.8; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes slideIn {
+  0% { transform: translateX(40px); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}

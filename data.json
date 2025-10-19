@@ -1,0 +1,79 @@
+[
+  {
+    "id": 1,
+    "nama": "Honda Jazz RS 2018",
+    "harga": 5000000,
+    "tahun": 2018,
+    "kilometer": "45.000 km",
+    "bahan_bakar": "Bensin",
+    "transmisi": "Manual",
+    "lokasi": "Jakarta Selatan",
+    "status": "Tersedia",
+    "deskripsi": "Honda Jazz RS 2018, terawat, pajak baru, mesin & kaki-kaki sehat.",
+    "kondisi": {
+      "kondisi": "Sangat baik, tangan pertama, servis rutin di bengkel resmi.",
+      "interior": "Original, terawat, bebas bau rokok.",
+      "eksterior": "Cat mulus, tidak ada bekas tabrak/banjir.",
+      "kelengkapan": "Buku servis, kunci cadangan, pajak hidup."
+    },
+    "gambar": ["img/c.jpg", "img/images.jpg", "img/a.jpeg"]
+  },
+  {
+    "id": 2,
+    "nama": "Toyota Avanza G 2019",
+    "harga": 165000000,
+    "tahun": 2019,
+    "kilometer": "32.000 km",
+    "bahan_bakar": "Bensin",
+    "transmisi": "Manual",
+    "lokasi": "Bandung",
+    "status": "Tersedia",
+    "deskripsi": "Toyota Avanza G 2019, kondisi prima, siap pakai, harga nego.",
+    "kondisi": {
+      "kondisi": "Sangat baik, tangan pertama, servis rutin di bengkel resmi.",
+      "interior": "Original, terawat, bebas bau rokok.",
+      "eksterior": "Cat mulus, tidak ada bekas tabrak/banjir.",
+      "kelengkapan": "Buku servis, kunci cadangan, pajak hidup."
+    },
+    "gambar": ["img/a.jpeg", "img/b.jpg", "img/c.jpg"]
+  },
+  {
+    "id": 3,
+    "nama": "Suzuki Ertiga GL 2020",
+    "harga": 175000000,
+    "tahun": 2020,
+    "kilometer": "28.000 km",
+    "bahan_bakar": "Bensin",
+    "transmisi": "Manual",
+    "lokasi": "Surabaya",
+    "status": "Terjual",
+    "deskripsi": "Suzuki Ertiga GL 2020, terawat, pajak hidup, siap pakai.",  
+    "kondisi": {
+      "kondisi": "Sangat baik, tangan pertama, servis rutin di bengkel resmi.",
+      "interior": "Original, terawat, bebas bau rokok.",
+      "eksterior": "Cat mulus, tidak ada bekas tabrak/banjir.",
+      "kelengkapan": "Buku servis, kunci cadangan, pajak hidup."
+    },
+    "gambar": ["img/b.jpg", "img/c.jpg", "img/images.jpg"]
+  },
+   {
+    "id": 4,
+    "nama": "Toyota Avanza G 2019",
+    "harga": 165000000,
+    "tahun": 2019,
+    "kilometer": "32.000 km",
+    "bahan_bakar": "Bensin",
+    "transmisi": "Manual",
+    "lokasi": "Bandung",
+    "status": "Tersedia",
+    "deskripsi": "Toyota Avanza G 2019, kondisi prima, siap pakai, harga nego.",
+    "kondisi"   : {
+      "kondisi": "Sangat baik, tangan pertama, servis rutin di bengkel resmi.",
+      "interior": "Original, terawat, bebas bau rokok.",
+      "eksterior": "Cat mulus, tidak ada bekas tabrak/banjir.",
+      "kelengkapan": "Buku servis, kunci cadangan, pajak hidup."
+    },
+    "gambar": ["img/images.jpg", "img/a.jpg", "img/b.jpg"]
+  }
+  
+]
