@@ -67,3 +67,27 @@
   0% { transform: translateX(40px); opacity: 0; }
   100% { transform: translateX(0); opacity: 1; }
 }
+
+.thumb-list {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  -webkit-overflow-scrolling: touch; /* smooth scrolling di iOS */
+}
+
+.thumb-list img {
+  flex-shrink: 0;
+  width: 90px;
+  height: 60px;
+  object-fit: cover;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+@media (min-width: 768px) {
+  .thumb-list {
+    flex-wrap: wrap;
+    overflow-x: visible;
+  }
+}
