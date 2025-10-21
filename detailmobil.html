@@ -14,8 +14,9 @@
   </style>
 </head>
 <body class="bg-light">
+
   <!-- HEADER -->
- <div id="header-placeholder"></div>
+  <div id="header-placeholder"></div>
 
   <!-- CONTENT -->
   <div class="container mb-5">
@@ -60,6 +61,9 @@
               <div class="mb-1"><strong>Interior:</strong> <span id="kondisi-interior"></span></div>
               <div class="mb-1"><strong>Eksterior:</strong> <span id="kondisi-eksterior"></span></div>
               <div class="mb-1"><strong>Kelengkapan:</strong> <span id="kondisi-kelengkapan"></span></div>
+              <div class="mb-1"><strong>Drive On:</strong> <span id="kondisi-driveon"></span></div>
+              <div class="mb-1"><strong>Tambahan:</strong> <span id="kondisi-tambahan"></span></div>
+              <div class="mb-1"><strong>Warna:</strong> <span id="mobil-warna"></span></div>
             </div>
             <div class="small" id="mobil-catatan"></div>
           </div>
@@ -77,21 +81,14 @@
   <div id="footer-placeholder"></div>
 
   <script>
-     fetch("header.html")
-                .then((res) => res.text())
-                .then(
-                    (data) =>
-                        (document.getElementById("header-placeholder").innerHTML = data)
-                );
+    fetch("header.html")
+      .then(res => res.text())
+      .then(data => document.getElementById("header-placeholder").innerHTML = data);
 
-            fetch("footer.html")
-                .then((res) => res.text())
-                .then(
-                    (data) =>
-                        (document.getElementById("footer-placeholder").innerHTML = data)
-                );
+    fetch("footer.html")
+      .then(res => res.text())
+      .then(data => document.getElementById("footer-placeholder").innerHTML = data);
 
-    // Fungsi ganti gambar utama berdasarkan thumbnail klik
     function changeImage(el) {
       document.getElementById('main-image').src = el.src;
       document.querySelectorAll('.thumb-list img').forEach(img => img.classList.remove('active'));
@@ -115,29 +112,32 @@
             return;
           }
 
-          // Isi detail data
+          // Fill detail info
           document.getElementById('mobil-nama').textContent = mobil.nama;
           document.getElementById('mobil-harga').textContent = `Rp ${mobil.harga.toLocaleString('id-ID')}`;
           document.getElementById('mobil-tahun').textContent = mobil.tahun;
           document.getElementById('mobil-km').textContent = mobil.kilometer;
           document.getElementById('mobil-bbm').textContent = mobil.bahan_bakar;
           document.getElementById('mobil-transmisi').textContent = mobil.transmisi;
-          document.getElementById('mobil-deskripsi').textContent = mobil.deskripsi;
-          document.getElementById('kondisi-kondisi').textContent = mobil.kondisi.kondisi;
-          document.getElementById('kondisi-interior').textContent = mobil.kondisi.interior;
-          document.getElementById('kondisi-eksterior').textContent = mobil.kondisi.eksterior;
-          document.getElementById('kondisi-kelengkapan').textContent = mobil.kondisi.kelengkapan;
+          /*document.getElementById('mobil-deskripsi').textContent = mobil.deskripsi || "-";*/
+          document.getElementById('kondisi-kondisi').textContent = mobil.kondisi || "-";
+          document.getElementById('kondisi-interior').textContent = mobil.interior || "-";
+          document.getElementById('kondisi-eksterior').textContent = mobil.eksterior || "-";
+          document.getElementById('kondisi-kelengkapan').textContent = mobil.stnk_bpkb || "-";
+          document.getElementById('kondisi-driveon').textContent = mobil.drive_on || "-";
+          document.getElementById('kondisi-tambahan').textContent = mobil.tambahan || "-";
+          document.getElementById('mobil-warna').textContent = mobil.warna || "-";
           document.getElementById('mobil-catatan').textContent = `${mobil.nama} cocok untuk keluarga dan harian, siap pakai tanpa biaya tambahan.`;
 
-          // Set gambar utama jadi gambar pertama
+          // Set main image
           document.getElementById('main-image').src = mobil.gambar[0];
 
-          // Buat galeri thumbnail
+          // Build thumbnails
           const thumbList = document.querySelector('.thumb-list');
           thumbList.innerHTML = '';
-          mobil.gambar.forEach((imgSrc, idx) => {
+          mobil.gambar.forEach((src, idx) => {
             const thumb = document.createElement('img');
-            thumb.src = imgSrc;
+            thumb.src = src;
             thumb.classList.add('img-thumbnail');
             thumb.style.width = '90px';
             thumb.style.height = '60px';
@@ -148,12 +148,12 @@
             thumbList.appendChild(thumb);
           });
 
-          // Setup tombol Hubungi WhatsApp
-          const whatsappNumber = "6281288011459"; // ganti nomor sesuai kebutuhan
+          // Setup WhatsApp Hubungi Button
+          const whatsappNumber = "6281288011459";
           const message = encodeURIComponent(`Halo, saya tertarik dengan mobil ${mobil.nama}. Apakah masih tersedia?`);
           const btnHubungi = document.getElementById('btn-hubungi');
-          
-          if(mobil.status === "Terjual"){
+
+          if (mobil.status === "Terjual") {
             btnHubungi.classList.remove("btn-primary");
             btnHubungi.classList.add("btn-secondary");
             btnHubungi.textContent = "Terjual";
@@ -170,7 +170,8 @@
         .catch(() => alert("Gagal mengambil data mobil."));
     });
   </script>
-<script src="script.js"></script>
+
+  <script src="script.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
