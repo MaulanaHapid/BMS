@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "nama": "Mobilio Rs 1",
+    "nama": "Mobilio Rs",
     "merk": "Honda",
     "tahun": 2015,
     "kilometer": 112000,
@@ -12,7 +12,7 @@
     "eksterior": "bebas laka banjir",
     "stnk_bpkb": "Stnk(Pajak on),Bpkb,Faktur,manual book,buku service ",
     "drive_on": "kaki-kaki senyap,mesin sehat1,metik responsif,kelistrikan aktif,",
-    "tambahan": "lampu mini laser 21",
+    "tambahan": "lampu mini laser 2",
     "warna": "Hitam",
     "harga": 148000000,
     "status": "Tersedia",
@@ -460,3 +460,4 @@
     ]
   }
 ]
+
