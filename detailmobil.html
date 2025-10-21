@@ -169,6 +169,17 @@
     </div>
   </div>
 
+  <!-- Modal Popup Gambar -->
+  <div class="modal fade" id="imgModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content bg-transparent border-0 shadow-none">
+        <img id="modal-img" src="" alt="Foto Mobil Besar" class="img-fluid rounded"
+          style="max-height:75vh;display:block;margin:auto;">
+      </div>
+    </div>
+  </div>
+
+
   <!-- FOOTER -->
   <div id="footer-placeholder"></div>
 
@@ -235,6 +246,13 @@
 
           // Set main image
           document.getElementById("main-image").src = mobil.gambar[0];
+          document.getElementById("main-image").onclick = function () {
+            const modalImg = document.getElementById("modal-img");
+            modalImg.src = this.src;
+            // Bootstrap 5 modal show
+            const bsModal = new bootstrap.Modal(document.getElementById('imgModal'));
+            bsModal.show();
+          };
 
           // Build thumbnails
           const thumbList = document.querySelector(".thumb-list");
@@ -294,4 +312,3 @@
 </body>
 
 </html>
-
