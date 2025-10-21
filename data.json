@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "nama": "Mobilio Rs ",
+    "nama": "Mobilio Rs 1",
     "merk": "Honda",
     "tahun": 2015,
     "kilometer": 112000,
@@ -11,13 +11,17 @@
     "interior": "Full ori",
     "eksterior": "bebas laka banjir",
     "stnk_bpkb": "Stnk(Pajak on),Bpkb,Faktur,manual book,buku service ",
-    "drive_on": "kaki-kaki senyap,mesin sehat,metik responsif,kelistrikan aktif,",
-    "tambahan": "lampu mini laser 2",
+    "drive_on": "kaki-kaki senyap,mesin sehat1,metik responsif,kelistrikan aktif,",
+    "tambahan": "lampu mini laser 21",
     "warna": "Hitam",
     "harga": 148000000,
     "status": "Tersedia",
+    "lokasi": "Subang",
     "gambar": [
       "img/c.jpg",
+      "img/images.jpg",
+      "img/a.jpeg",
+       "img/c.jpg",
       "img/images.jpg",
       "img/a.jpeg"
     ]
@@ -39,6 +43,7 @@
     "warna": "Biru",
     "harga": 78000000,
     "status": "Tersedia",
+    "lokasi": "Subang",
     "gambar": [
       "img/c.jpg",
       "img/images.jpg",
@@ -62,6 +67,7 @@
     "warna": "putih",
     "harga": 125000000,
     "status": "Tersedia",
+    "lokasi": "Subang",
     "gambar": [
       "img/c.jpg",
       "img/images.jpg",
@@ -85,6 +91,7 @@
     "warna": "putih",
     "harga": 105000000,
     "status": "Tersedia",
+    "lokasi": "Subang",
     "gambar": [
       "img/c.jpg",
       "img/images.jpg",
@@ -108,6 +115,7 @@
     "warna": "merah",
     "harga": 130000000,
     "status": "Tersedia",
+    "lokasi": "Subang",
     "gambar": [
       "img/c.jpg",
       "img/images.jpg",
@@ -131,6 +139,7 @@
     "warna": "merah",
     "harga": 143000000,
     "status": "Tersedia",
+    "lokasi": "Subang",
     "gambar": [
       "img/c.jpg",
       "img/images.jpg",
@@ -154,6 +163,7 @@
     "warna": "hitam",
     "harga": 139000000,
     "status": "Tersedia",
+    "lokasi": "Subang",
     "gambar": [
       "img/c.jpg",
       "img/images.jpg",
@@ -177,7 +187,11 @@
     "warna": "Abu-Abu",
     "harga": 145000000,
     "status": "Tersedia",
+    "lokasi": "Subang",
     "gambar": [
+      "img/c.jpg",
+      "img/images.jpg",
+      "img/a.jpeg",
       "img/c.jpg",
       "img/images.jpg",
       "img/a.jpeg"
@@ -200,6 +214,7 @@
     "warna": "Hitam",
     "harga": 100000000,
     "status": "Tersedia",
+    "lokasi": "Subang",
     "gambar": [
       "img/c.jpg",
       "img/images.jpg",
@@ -223,6 +238,7 @@
     "warna": "Abu-Abu",
     "harga": 137000000,
     "status": "Tersedia",
+    "lokasi": "Subang",
     "gambar": [
       "img/c.jpg",
       "img/images.jpg",
@@ -246,6 +262,7 @@
     "warna": "Silver",
     "harga": 100000000,
     "status": "Tersedia",
+    "lokasi": "Subang",
     "gambar": [
       "img/c.jpg",
       "img/images.jpg",
@@ -269,6 +286,7 @@
     "warna": "Abu-Abu",
     "harga": 145000000,
     "status": "Tersedia",
+    "lokasi": "Subang",
     "gambar": [
       "img/c.jpg",
       "img/images.jpg",
@@ -292,10 +310,16 @@
     "warna": "Putih",
     "harga": 122000000,
     "status": "Tersedia",
+    "lokasi": "Subang",
     "gambar": [
-      "img/c.jpg",
-      "img/images.jpg",
-      "img/a.jpeg"
+      "img/BRIOE/brio E At 2015-images-4.jpg",
+      "img/BRIOE/brio E At 2015-images-1.jpg",
+      "img/BRIOE/brio E At 2015-images-2.jpg",
+      "img/BRIOE/brio E At 2015-images-0.jpg",
+      "img/BRIOE/brio E At 2015-images-3.jpg",
+      "img/BRIOE/brio E At 2015-images-5.jpg",
+      "img/BRIOE/brio E At 2015-images-6.jpg",
+      "img/BRIOE/brio E At 2015-images-7.jpg"
     ]
   },
   {
@@ -315,6 +339,7 @@
     "warna": "Silver",
     "harga": 115000000,
     "status": "Tersedia",
+    "lokasi": "Subang",
     "gambar": [
       "img/c.jpg",
       "img/images.jpg",
@@ -338,10 +363,14 @@
     "warna": "Silver",
     "harga": 110000000,
     "status": "Tersedia",
+    "lokasi": "Subang",
     "gambar": [
-      "img/c.jpg",
-      "img/images.jpg",
-      "img/a.jpeg"
+      "img/TERIOS/terios Tx Manual 2010-images-5.jpg",
+      "img/TERIOS/terios Tx Manual 2010-images-1.jpg",
+      "img/TERIOS/terios Tx Manual 2010-images-2.jpg",
+      "img/TERIOS/terios Tx Manual 2010-images-3.jpg",
+      "img/TERIOS/terios Tx Manual 2010-images-4.jpg",
+      "img/TERIOS/terios Tx Manual 2010-images-0.jpg"
     ]
   },
   {
@@ -361,10 +390,19 @@
     "warna": "putih",
     "harga": 145000000,
     "status": "Tersedia",
+    "lokasi": "Subang",
     "gambar": [
-      "img/c.jpg",
-      "img/images.jpg",
-      "img/a.jpeg"
+      "img/RUSHTRD/rush S Trd Manual 2014-images-2.jpg",
+      "img/RUSHTRD/rush S Trd Manual 2014-images-1.jpg",
+      "img/RUSHTRD/rush S Trd Manual 2014-images-4.jpg",
+      "img/RUSHTRD/rush S Trd Manual 2014-images-3.jpg",
+      "img/RUSHTRD/rush S Trd Manual 2014-images-0.jpg",
+      "img/RUSHTRD/rush S Trd Manual 2014-images-5.jpg",
+      "img/RUSHTRD/rush S Trd Manual 2014-images-6.jpg",
+      "img/RUSHTRD/rush S Trd Manual 2014-images-7.jpg",
+      "img/RUSHTRD/rush S Trd Manual 2014-images-8.jpg",
+      "img/RUSHTRD/rush S Trd Manual 2014-images-9.jpg"
+
     ]
   },
   {
@@ -384,10 +422,17 @@
     "warna": "putih",
     "harga": 128000000,
     "status": "Tersedia",
+    "lokasi": "Subang",
     "gambar": [
-      "img/c.jpg",
-      "img/images.jpg",
-      "img/a.jpeg"
+      "img/ERTIGAGX/ertiga Gx Manual 2014-images-4.jpg",
+      "img/ERTIGAGX/ertiga Gx Manual 2014-images-1.jpg",
+      "img/ERTIGAGX/ertiga Gx Manual 2014-images-2.jpg",
+      "img/ERTIGAGX/ertiga Gx Manual 2014-images-0.jpg",
+      "img/ERTIGAGX/ertiga Gx Manual 2014-images-3.jpg",
+      "img/ERTIGAGX/ertiga Gx Manual 2014-images-5.jpg",
+      "img/ERTIGAGX/ertiga Gx Manual 2014-images-6.jpg",
+      "img/ERTIGAGX/ertiga Gx Manual 2014-images-7.jpg",
+      "img/ERTIGAGX/ertiga Gx Manual 2014-images-8.jpg"
     ]
   },
   {
@@ -407,6 +452,7 @@
     "warna": "Merah maroon",
     "harga": 97000000,
     "status": "Tersedia",
+    "lokasi": "Subang",
     "gambar": [
       "img/c.jpg",
       "img/images.jpg",
