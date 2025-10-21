@@ -6,12 +6,36 @@ document.addEventListener("DOMContentLoaded", function () {
                 (document.getElementById("header-placeholder").innerHTML = data)
         );
 
-    fetch("footer.html")
-        .then((res) => res.text())
-        .then(
-            (data) =>
-                (document.getElementById("footer-placeholder").innerHTML = data)
-        );
+   fetch("footer.html")
+  .then(res => res.text())
+  .then(data => {
+      document.getElementById("footer-placeholder").innerHTML = data;
+
+      // Setelah footer sudah masuk ke DOM, jalankan script notifikasi WhatsApp di sini
+      const notif = document.getElementById('whatsapp-notif');
+      if (!notif) {
+          console.warn('Element whatsapp-notif tidak ditemukan di DOM!');
+          return;
+      }
+
+      // munculkan notif setelah 2 detik
+      setTimeout(() => {
+          notif.style.display = 'block';
+          notif.style.animation = 'slideIn 0.4s ease-out';
+      }, 2000);
+
+      // klik = buka WA
+      notif.addEventListener('click', () => {
+          window.open('https://wa.me/6281288011459', '_blank');
+          notif.style.display = 'none';
+      });
+
+      // hilang otomatis setelah 10 detik
+      setTimeout(() => {
+          notif.style.display = 'none';
+      }, 10000);
+  });
+
 
     fetch("data.json")
         .then((res) => res.json())
@@ -259,3 +283,4 @@ document.addEventListener('DOMContentLoaded', function () {
         notif.style.display = 'none';
     }, 10000);
 });
+
