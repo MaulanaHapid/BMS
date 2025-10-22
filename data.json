@@ -47,10 +47,10 @@
     "status": "Tersedia",
     "lokasi": "Subang",
     "gambar": [
-      "img/KIJANG/Kijang 1.8 Efi Lgx Manual 2002-images-4.jpg",
+      "img/KIJANG/Kijang_1.8_Efi_Lgx_Manual_2002-images-4.jpg",
       "img/KIJANG/Kijang 1.8 Efi Lgx Manual 2002-images-5.jpg",
       "img/KIJANG/Kijang 1.8 Efi Lgx Manual 2002-images-6.jpg",
-      "img/KIJANG/Kijang 1.8 Efi Lgx Manual 2002-images-0.jpg",
+      "img/KIJANG/Kijang_1.8_Efi_Lgx_Manual_2002-images-0.jpg",
       "img/KIJANG/Kijang 1.8 Efi Lgx Manual 2002-images-1.jpg",
       "img/KIJANG/Kijang 1.8 Efi Lgx Manual 2002-images-2.jpg",
       "img/KIJANG/Kijang 1.8 Efi Lgx Manual 2002-images-3.jpg"
@@ -368,14 +368,14 @@
     "status": "Tersedia",
     "lokasi": "Subang",
     "gambar": [
-      "img/BRIOE/brio E At 2015-images-4.jpg",
-      "img/BRIOE/brio E At 2015-images-1.jpg",
-      "img/BRIOE/brio E At 2015-images-2.jpg",
-      "img/BRIOE/brio E At 2015-images-0.jpg",
-      "img/BRIOE/brio E At 2015-images-3.jpg",
-      "img/BRIOE/brio E At 2015-images-5.jpg",
-      "img/BRIOE/brio E At 2015-images-6.jpg",
-      "img/BRIOE/brio E At 2015-images-7.jpg"
+      "img/BRIOE/Brio E At 2015-images-4.jpg",
+      "img/BRIOE/Brio E At 2015-images-1.jpg",
+      "img/BRIOE/Brio E At 2015-images-2.jpg",
+      "img/BRIOE/Brio E At 2015-images-0.jpg",
+      "img/BRIOE/Brio E At 2015-images-3.jpg",
+      "img/BRIOE/Brio E At 2015-images-5.jpg",
+      "img/BRIOE/Brio E At 2015-images-6.jpg",
+      "img/BRIOE/Brio E At 2015-images-7.jpg"
     ]
   },
   {
@@ -480,15 +480,15 @@
     "status": "Tersedia",
     "lokasi": "Subang",
     "gambar": [
-      "img/ERTIGAGX/ertiga Gx Manual 2014-images-4.jpg",
-      "img/ERTIGAGX/ertiga Gx Manual 2014-images-1.jpg",
-      "img/ERTIGAGX/ertiga Gx Manual 2014-images-2.jpg",
-      "img/ERTIGAGX/ertiga Gx Manual 2014-images-0.jpg",
-      "img/ERTIGAGX/ertiga Gx Manual 2014-images-3.jpg",
-      "img/ERTIGAGX/ertiga Gx Manual 2014-images-5.jpg",
-      "img/ERTIGAGX/ertiga Gx Manual 2014-images-6.jpg",
-      "img/ERTIGAGX/ertiga Gx Manual 2014-images-7.jpg",
-      "img/ERTIGAGX/ertiga Gx Manual 2014-images-8.jpg"
+      "img/ERTIGAGX/Ertiga Gx Manual 2014-images-4.jpg",
+      "img/ERTIGAGX/Ertiga Gx Manual 2014-images-1.jpg",
+      "img/ERTIGAGX/Ertiga Gx Manual 2014-images-2.jpg",
+      "img/ERTIGAGX/Ertiga Gx Manual 2014-images-0.jpg",
+      "img/ERTIGAGX/Ertiga Gx Manual 2014-images-3.jpg",
+      "img/ERTIGAGX/Ertiga Gx Manual 2014-images-5.jpg",
+      "img/ERTIGAGX/Ertiga Gx Manual 2014-images-6.jpg",
+      "img/ERTIGAGX/Ertiga Gx Manual 2014-images-7.jpg",
+      "img/ERTIGAGX/Ertiga Gx Manual 2014-images-8.jpg"
     ]
   },
   {
@@ -516,6 +516,7 @@
     ]
   }
 ]
+
 
 
 
