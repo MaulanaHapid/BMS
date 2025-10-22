@@ -47,7 +47,7 @@
     "status": "Tersedia",
     "lokasi": "Subang",
     "gambar": [
-      "img/KIJANG/kijang 1.8 Efi Lgx Manual 2002-images-4.jpg",
+      "img/KIJANG/kijang_1.8_Efi_Lgx_Manual_2002-images-4.jpg",
       "img/KIJANG/kijang 1.8 Efi Lgx Manual 2002-images-5.jpg",
       "img/KIJANG/kijang 1.8 Efi Lgx Manual 2002-images-6.jpg",
       "img/KIJANG/kijang 1.8 Efi Lgx Manual 2002-images-0.jpg",
@@ -506,6 +506,7 @@
     ]
   }
 ]
+
 
 
 
