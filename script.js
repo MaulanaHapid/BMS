@@ -209,13 +209,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             // Fungsi filter ALL
-            function applyFilters() {
-                const searchTerm = searchInput ? searchInput.value.toLowerCase() : '';
-                const activeCategoryBtn = Array.from(filterBrandButtons).find(
-                    (btn) => btn.classList.contains("active")
-                );
-                const category = activeCategoryBtn ? activeCategoryBtn.dataset.brand : "all";
-
+    
                  function applyFilters() {
                 const searchTerm = searchInput ? searchInput.value.toLowerCase() : '';
                 const activeCategoryBtn = Array.from(filterBrandButtons).find(
@@ -257,4 +251,5 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         .catch((err) => console.error("Gagal memuat data mobil:", err));
 });
+
 
