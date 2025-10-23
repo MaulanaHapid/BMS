@@ -216,10 +216,18 @@ document.addEventListener("DOMContentLoaded", function () {
                 );
                 const category = activeCategoryBtn ? activeCategoryBtn.dataset.brand : "all";
 
+                 function applyFilters() {
+                const searchTerm = searchInput ? searchInput.value.toLowerCase() : '';
+                const activeCategoryBtn = Array.from(filterBrandButtons).find(
+                    (btn) => btn.classList.contains("active")
+                );
+                const category = activeCategoryBtn ? activeCategoryBtn.dataset.brand : "all";
+
                 filteredList = mobilList.filter((mobil) => {
                     const matchesSearch = mobil.nama.toLowerCase().includes(searchTerm);
                     let matchesCategory = true;
                     let matchesPrice = true;
+                    let matchesStatus = mobil.status.toLowerCase() === "tersedia"; 
 
                     if (category !== "all") {
                         matchesCategory = mobil.merk.toLowerCase() === category.toLowerCase();
@@ -238,7 +246,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         default:
                             matchesPrice = true;
                     }
-                    return matchesSearch && matchesCategory && matchesPrice;
+                    return matchesSearch && matchesCategory && matchesPrice && matchesStatus;
                 });
                 currentPage = 1;
                 renderPage(currentPage);
@@ -249,3 +257,4 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         .catch((err) => console.error("Gagal memuat data mobil:", err));
 });
+
