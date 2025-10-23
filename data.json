@@ -208,7 +208,7 @@
     "tambahan": "velg Hsr Ring 15",
     "warna": "hitam",
     "harga": 139000000,
-    "status": "Tersedia",
+    "status": "Terjual",
     "lokasi": "Subang",
     "gambar": [
        "img/AVANZA1.3/Avanza 1.3_page-0001.jpg",
@@ -239,7 +239,7 @@
     "tambahan": "",
     "warna": "Abu-Abu",
     "harga": 145000000,
-    "status": "Terjual",
+    "status": "Tersedia",
     "lokasi": "Subang",
     "gambar": [
       "img/c.jpg",
@@ -418,7 +418,7 @@
     "tambahan": "0",
     "warna": "Silver",
     "harga": 110000000,
-    "status": "Tersedia",
+    "status": "Terjual",
     "lokasi": "Subang",
     "gambar": [
       "img/TERIOS/terios Tx Manual 2010-images-5.jpg",
@@ -445,7 +445,7 @@
     "tambahan": "Audio Touchscreen",
     "warna": "putih",
     "harga": 145000000,
-    "status": "Terjual",
+    "status": "Tersedia",
     "lokasi": "Subang",
     "gambar": [
        "img/RUSHTRD/Rush Trd Manual 2014-images-2.jpg",
@@ -516,6 +516,7 @@
     ]
   }
 ]
+
 
 
 
