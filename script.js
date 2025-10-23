@@ -124,7 +124,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     <div class="col">
                         <div class="card h-100 shadow-sm">
                             <div class="position-relative" style="height: 200px;">
-                                <img src="${mobil.gambar[0]}" alt="${mobil.nama}" loading="lazy" style="width:100%; height:100%; object-fit:contain;">
+                                <img src="${mobil.gambar[0]}" alt="${mobil.nama}" style="width:100%; height:100%; object-fit:contain;">
                                 <span class="badge ${badgeClass} position-absolute top-0 start-0 m-2">${mobil.status}</span>
                             </div>
                             <div class="card-body d-flex flex-column">
@@ -251,6 +251,7 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         .catch((err) => console.error("Gagal memuat data mobil:", err));
 });
+
 
 
 
