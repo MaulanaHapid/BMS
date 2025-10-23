@@ -239,7 +239,7 @@
     "tambahan": "",
     "warna": "Abu-Abu",
     "harga": 145000000,
-    "status": "Tersedia",
+    "status": "Terjual",
     "lokasi": "Subang",
     "gambar": [
       "img/c.jpg",
@@ -445,7 +445,7 @@
     "tambahan": "Audio Touchscreen",
     "warna": "putih",
     "harga": 145000000,
-    "status": "Tersedia",
+    "status": "Terjual",
     "lokasi": "Subang",
     "gambar": [
        "img/RUSHTRD/Rush Trd Manual 2014-images-2.jpg",
@@ -516,6 +516,7 @@
     ]
   }
 ]
+
 
 
 
