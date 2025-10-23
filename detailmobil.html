@@ -244,6 +244,10 @@
           document.getElementById("kondisi-tambahan").textContent = mobil.tambahan || "-";
           document.getElementById("mobil-warna").textContent = mobil.warna || "-";
 
+          document.getElementById("main-image").setAttribute("loading", "lazy");
+          // Saat membuat thumbnail
+          thumb.setAttribute("loading", "lazy");
+          
           // Set main image
           document.getElementById("main-image").src = mobil.gambar[0];
           document.getElementById("main-image").onclick = function () {
@@ -265,6 +269,7 @@
             thumb.style.height = "60px";
             thumb.style.objectFit = "cover";
             thumb.alt = `Thumbnail ${idx + 1}`;
+            thumb.setAttribute("loading", "lazy"); 
             if (idx === 0) thumb.classList.add("active");
             thumb.onclick = () => {
               document.getElementById("main-image").src = src;
@@ -312,3 +317,4 @@
 </body>
 
 </html>
+
