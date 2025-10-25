@@ -550,8 +550,41 @@
       "img/XENIASPORTY/Xenia 1.3 X SPORTY_page-0007.jpg",
       "img/XENIASPORTY/Xenia 1.3 X SPORTY_page-0008.jpg"
     ]
+  },
+  {
+    "id": 19,
+    "nama": "Avanza 1.3 G",
+    "merk": "Toyota",
+    "tahun": 2019,
+    "kilometer": 27000,
+    "bahan_bakar": "Bensin",
+    "transmisi": "Manual",
+    "kondisi": "super mulus,Rapih",
+    "interior": "Full ori",
+    "eksterior": "bebas laka banjir",
+    "stnk_bpkb": "Stnk(Pajak on),Bpkb,Faktur,manual book,buku service ",
+    "drive_on": "Kaki-kaki senyap,ac dingin,mesin sehat(no overheat),pspw aktif,kelistriman aman,kupling empuk",
+    "tambahan": "-",
+    "warna": "hitam",
+    "harga": 168000000,
+    "status": "Tersedia",
+    "lokasi": "Subang",
+    "gambar": [
+      "img/AVANZAG1.32019/Avanza G 1-images-0.jpg",
+      "img/AVANZAG1.32019/Avanza G 1-images-1.jpg",
+      "img/AVANZAG1.32019/Avanza G 1-images-2.jpg",
+      "img/AVANZAG1.32019/Avanza G 1-images-3.jpg",
+      "img/AVANZAG1.32019/Avanza G 1-images-4.jpg",
+      "img/AVANZAG1.32019/Avanza G 1-images-5.jpg",
+      "img/AVANZAG1.32019/Avanza G 1-images-6.jpg",
+      "img/AVANZAG1.32019/Avanza G 1-images-7.jpg",
+      "img/AVANZAG1.32019/Avanza G 1-images-8.jpg",
+      "img/AVANZAG1.32019/Avanza G 1-images-9.jpg",
+      "img/AVANZAG1.32019/Avanza G 1-images-10.jpg"
+    ]
   }
 ]
+
 
 
 
