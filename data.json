@@ -584,7 +584,7 @@
     ]
   },
   {
-    "id": 19,
+    "id": 20,
     "nama": "Brio S",
     "merk": "Honda",
     "tahun": 2019,
@@ -612,8 +612,42 @@
       "img/BRIOS2019/Brio S Mt 2019-images-7.jpg",
       "img/BRIOS2019/Brio S Mt 2019-images-8.jpg"
     ]
+  },
+  {
+    "id": 21,
+    "nama": "Calya 1.2 G",
+    "merk": "Toyota",
+    "tahun": 2020,
+    "kilometer": 31000,
+    "bahan_bakar": "Bensin",
+    "transmisi": "Manual",
+    "kondisi": "super mulus,Rapih",
+    "interior": "Full ori",
+    "eksterior": "bebas laka banjir",
+    "stnk_bpkb": "Stnk(Pajak on),Bpkb,Faktur,manual book,buku service ",
+    "drive_on": "Kaki-kaki senyap,ac dingin,mesin sehat(no overheat),pspw aktif,kelistriman aman,kupling empuk",
+    "tambahan": "-",
+    "warna": "Merah",
+    "harga": 133000000,
+    "status": "Tersedia",
+    "lokasi": "Subang",
+    "gambar": [
+      "img/calya1.2merah/calya1.2merah-images-0.jpg",
+      "img/calya1.2merah/calya1.2merah-images-1.jpg",
+      "img/calya1.2merah/calya1.2merah-images-2.jpg",
+      "img/calya1.2merah/calya1.2merah-images-3.jpg",
+      "img/calya1.2merah/calya1.2merah-images-4.jpg",
+      "img/calya1.2merah/calya1.2merah-images-5.jpg",
+      "img/calya1.2merah/calya1.2merah-images-6.jpg",
+      "img/calya1.2merah/calya1.2merah-images-7.jpg",
+      "img/calya1.2merah/calya1.2merah-images-8.jpg",
+      "img/calya1.2merah/calya1.2merah-images-9.jpg",
+      "img/calya1.2merah/calya1.2merah-images-10.jpg",
+      "img/calya1.2merah/calya1.2merah-images-11.jpg"
+    ]
   }
 ]
+
 
 
 
