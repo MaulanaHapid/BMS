@@ -297,7 +297,7 @@
     "tambahan": "0",
     "warna": "Abu-Abu",
     "harga": 137000000,
-    "status": "Tersedia",
+    "status": "Terjual",
     "lokasi": "Subang",
     "gambar": [
       "img/CALYA1.2G/Calya 1.2 g-images-6.jpg",
@@ -508,7 +508,7 @@
     "tambahan": "0",
     "warna": "putih",
     "harga": 128000000,
-    "status": "Tersedia",
+    "status": "Terjual",
     "lokasi": "Subang",
     "gambar": [
       "img/ERTIGAGX/Ertiga Gx Manual 2014-images-4.jpg",
@@ -647,6 +647,7 @@
     ]
   }
 ]
+
 
 
 
