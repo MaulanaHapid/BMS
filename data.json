@@ -72,7 +72,7 @@
     "tambahan": "0",
     "warna": "putih",
     "harga": 125000000,
-    "status": "Tersedia",
+    "status": "Terjual",
     "lokasi": "Subang",
     "gambar": [
      "img/AGYA1.2/Agya 1.2 Trd At 2017-images-4.jpg",
@@ -647,6 +647,7 @@
     ]
   }
 ]
+
 
 
 
