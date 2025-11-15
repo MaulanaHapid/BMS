@@ -645,8 +645,71 @@
       "img/calya1.2merah/calya1.2merah-images-10.jpg",
       "img/calya1.2merah/calya1.2merah-images-11.jpg"
     ]
+  },
+  {
+    "id": 22,
+    "nama": "Ayla D+",
+    "merk": "Daihatsu",
+    "tahun": 2022,
+    "kilometer": 11000,
+    "bahan_bakar": "Bensin",
+    "transmisi": "Manual",
+    "kondisi": "super mulus,Rapih",
+    "interior": "Full ori",
+    "eksterior": "bebas laka banjir",
+    "stnk_bpkb": "Stnk(Pajak on),Bpkb,Faktur,manual book,buku service ",
+    "drive_on": "Kaki-kaki senyap,ac dingin,mesin sehat(no overheat),pspw aktif,kelistrikan aman,kupling empuk",
+    "tambahan": "Foglamp Led",
+    "warna": "Hitam",
+    "harga": 95000000,
+    "status": "Tersedia",
+    "lokasi": "Subang",
+    "gambar": [
+      "img/AYLADplus/Ayla D+ Manual 2022-images-0.jpg",
+      "img/AYLADplus/Ayla D+ Manual 2022-images-1.jpg",
+      "img/AYLADplus/Ayla D+ Manual 2022-images-2.jpg",
+      "img/AYLADplus/Ayla D+ Manual 2022-images-3.jpg",
+      "img/AYLADplus/Ayla D+ Manual 2022-images-4.jpg",
+      "img/AYLADplus/Ayla D+ Manual 2022-images-5.jpg",
+      "img/AYLADplus/Ayla D+ Manual 2022-images-6.jpg",
+      "img/AYLADplus/Ayla D+ Manual 2022-images-7.jpg",
+      "img/AYLADplus/Ayla D+ Manual 2022-images-8.jpg"
+    ]
+  },
+  {
+    "id": 23,
+    "nama": "Xenia R",
+    "merk": "Daihatsu",
+    "tahun": 2013,
+    "kilometer": 128000,
+    "bahan_bakar": "Bensin",
+    "transmisi": "Manual",
+    "kondisi": "super mulus,Rapih",
+    "interior": "Full ori",
+    "eksterior": "bebas laka banjir",
+    "stnk_bpkb": "Stnk(Pajak on),Bpkb,Faktur",
+    "drive_on": "Kaki-kaki senyap,ac dingin,mesin sehat(no overheat),pspw aktif,kelistrikan aman,kupling empuk",
+    "tambahan": "-",
+    "warna": "Silver",
+    "harga": 110000000,
+    "status": "Tersedia",
+    "lokasi": "Subang",
+    "gambar": [
+      "img/XENIAR.ID22/compressed-tinyjpg-Xenia R Manual 2013-images-2.jpg",
+      "img/XENIAR.ID22/compressed-tinyjpg-Xenia R Manual 2013-images-1.jpg",
+      "img/XENIAR.ID22/compressed-tinyjpg-Xenia R Manual 2013-images-3.jpg",
+      "img/XENIAR.ID22/compressed-tinyjpg-Xenia R Manual 2013-images-4.jpg",
+      "img/XENIAR.ID22/compressed-tinyjpg-Xenia R Manual 2013-images-5.jpg",
+      "img/XENIAR.ID22/compressed-tinyjpg-Xenia R Manual 2013-images-6.jpg",
+      "img/XENIAR.ID22/compressed-tinyjpg-Xenia R Manual 2013-images-7.jpg",
+      "img/XENIAR.ID22/compressed-tinyjpg-Xenia R Manual 2013-images-8.jpg",
+      "img/XENIAR.ID22/compressed-tinyjpg-Xenia R Manual 2013-images-9.jpg",
+      "img/XENIAR.ID22/compressed-tinyjpg-Xenia R Manual 2013-images-10.jpg"
+    ]
   }
+  
 ]
+
 
 
 
