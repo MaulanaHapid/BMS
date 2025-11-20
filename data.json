@@ -115,7 +115,7 @@
     "tambahan": "0",
     "warna": "putih",
     "harga": 105000000,
-    "status": "Tersedia",
+    "status": "Terjual",
     "lokasi": "Subang",
     "gambar": [
      "img/AGYA1.0/Agya 1.0 Trd At 2017-images-0.jpg",
@@ -662,7 +662,7 @@
     "tambahan": "Foglamp Led",
     "warna": "Hitam",
     "harga": 95000000,
-    "status": "Tersedia",
+    "status": "Terjual",
     "lokasi": "Subang",
     "gambar": [
       "img/AYLADplus/Ayla D+ Manual 2022-images-0.jpg",
@@ -723,7 +723,7 @@
     "tambahan": "Audio Touchscreen,Velg Racing",
     "warna": "Putih",
     "harga": 78000000,
-    "status": "Tersedia",
+    "status": "Terjual",
     "lokasi": "Subang",
     "gambar": [
       "img/AGYAE.ID24/compressed-tinyjpg-Agya E Manual 2014-images-0.jpg",
@@ -740,6 +740,7 @@
   }
   
 ]
+
 
 
 
