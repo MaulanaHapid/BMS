@@ -15,7 +15,7 @@
     "tambahan": "lampu mini laser 2",
     "warna": "Hitam",
     "harga": "148000000",
-    "status": "Tersedia",
+    "status": "TERJUAL",
     "lokasi": "Bandung",
     "gambar": [
       "img/mobilio 15 rs/page_1.jpg",
@@ -651,3 +651,4 @@
     ]
   }
 ]
+
