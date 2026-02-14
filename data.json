@@ -204,16 +204,16 @@
     "status": "Tersedia",
     "lokasi": "Subang",
     "gambar": [
-      "img/Ayla 1.0 X At 2022/page_1.jpg",
-      "img/Ayla 1.0 X At 2022/page_2.jpg",
-      "img/Ayla 1.0 X At 2022/page_3.jpg",
-      "img/Ayla 1.0 X At 2022/page_4.jpg",
-      "img/Ayla 1.0 X At 2022/page_5.jpg",
-      "img/Ayla 1.0 X At 2022/page_6.jpg",
-      "img/Ayla 1.0 X At 2022/page_7.jpg",
-      "img/Ayla 1.0 X At 2022/page_8.jpg",
-      "img/Ayla 1.0 X At 2022/page_9.jpg",
-      "img/Ayla 1.0 X At 2022/page_10.jpg"
+       "img/Ayla 1.0 X MT 2022/page_1.jpg",
+      "img/Ayla 1.0 X MT 2022/page_2.jpg",
+      "img/Ayla 1.0 X MT 2022/page_3.jpg",
+      "img/Ayla 1.0 X MT 2022/page_4.jpg",
+      "img/Ayla 1.0 X MT 2022/page_5.jpg",
+      "img/Ayla 1.0 X MT 2022/page_6.jpg",
+      "img/Ayla 1.0 X MT 2022/page_7.jpg",
+      "img/Ayla 1.0 X MT 2022/page_8.jpg",
+      "img/Ayla 1.0 X MT 2022/page_9.jpg",
+      "img/Ayla 1.0 X MT 2022/page_10.jpg"
     ]
   },
   {
@@ -651,5 +651,6 @@
     ]
   }
 ]
+
 
 
