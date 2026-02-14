@@ -46,7 +46,7 @@
     "tambahan": "upgrade foglamp,velg Racing,audio touchscreen,kamera mundur",
     "warna": "Hitam",
     "harga": "133.000.000",
-    "status": "Tersedia",
+    "status": "Terjual",
     "lokasi": "Subang",
     "gambar": [
        "img/Avanza 1.3 G Mt 2016/page_1.jpg",
@@ -232,7 +232,7 @@
     "tambahan": "0",
     "warna": "Silver",
     "harga": "123.000.000",
-    "status": "Tersedia",
+    "status": "TERJUAL",
     "lokasi": "Subang",
     "gambar": [
       "img/Yaris E At 2012/page_1.jpg",
@@ -390,16 +390,16 @@
     "status": "Tersedia",
     "lokasi": "Subang",
     "gambar": [
-      "img/Xenia 1.3 X.i Mt 2011/page_1.jpg",
-      "img/Xenia 1.3 X.i Mt 2011/page_2.jpg",
-      "img/Xenia 1.3 X.i Mt 2011/page_3.jpg",
-      "img/Xenia 1.3 X.i Mt 2011/page_4.jpg",
-      "img/Xenia 1.3 X.i Mt 2011/page_5.jpg",
-      "img/Xenia 1.3 X.i Mt 2011/page_6.jpg",
-      "img/Xenia 1.3 X.i Mt 2011/page_7.jpg",
-      "img/Xenia 1.3 X.i Mt 2011/page_8.jpg",
-      "img/Xenia 1.3 X.i Mt 2011/page_9.jpg",
-      "img/Xenia 1.3 X.i Mt 2011/page_10.jpg"
+        "img/New Xenia 1.3 X Mt 2019/page_1.jpg",
+      "img/New Xenia 1.3 X Mt 2019/page_2.jpg",
+      "img/New Xenia 1.3 X Mt 2019/page_3.jpg",
+      "img/New Xenia 1.3 X Mt 2019/page_4.jpg",
+      "img/New Xenia 1.3 X Mt 2019/page_5.jpg",
+      "img/New Xenia 1.3 X Mt 2019/page_6.jpg",
+      "img/New Xenia 1.3 X Mt 2019/page_7.jpg",
+      "img/New Xenia 1.3 X Mt 2019/page_8.jpg",
+      "img/New Xenia 1.3 X Mt 2019/page_9.jpg",
+      "img/New Xenia 1.3 X Mt 2019/page_10.jpg"
     ]
   },
   {
@@ -651,6 +651,7 @@
     ]
   }
 ]
+
 
 
 
