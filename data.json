@@ -480,7 +480,7 @@
     "tambahan": "0",
     "warna": "Merah",
     "harga": "98.000.000",
-    "status": "Tersedia",
+    "status": "Terjual",
     "lokasi": "Subang",
     "gambar": [
       "img/DATSUN 1.2 GO CVT 2018/page_1.jpg",
@@ -651,6 +651,7 @@
     ]
   }
 ]
+
 
 
 
