@@ -201,7 +201,7 @@
     "tambahan": "0",
     "warna": "Merah",
     "harga": "123.000.000",
-    "status": "Tersedia",
+    "status": "Terjual",
     "lokasi": "Subang",
     "gambar": [
        "img/Ayla 1.0 X MT 2022/page_1.jpg",
@@ -294,7 +294,7 @@
     "tambahan": "0",
     "warna": "Putih",
     "harga": "98.000.000",
-    "status": "Tersedia",
+    "status": "Terjual",
     "lokasi": "Subang",
     "gambar": [
       "img/Nissan March 1.2 L Mt 2015/page_1.jpg",
@@ -449,7 +449,7 @@
     "tambahan": "0",
     "warna": "Abu - Abu",
     "harga": "118.000.000",
-    "status": "Tersedia",
+    "status": "Terjual",
     "lokasi": "Subang",
     "gambar": [
       "img/Calya 1.2 G Mt 2017/page_1.jpg",
@@ -511,7 +511,7 @@
     "tambahan": "0",
     "warna": "Hitam",
     "harga": "113.000.000",
-    "status": "Tersedia",
+    "status": "TERJUAL",
     "lokasi": "Subang",
     "gambar": [
       "img/Apv 1.5 Sgx At 2016/page_1.jpg",
@@ -542,7 +542,7 @@
     "tambahan": "0",
     "warna": "Kuning",
     "harga": "88.000.000",
-    "status": "Tersedia",
+    "status": "Terjual",
     "lokasi": "Subang",
     "gambar": [
       "img/Swift St Manual 2008/page_1.jpg",
@@ -651,6 +651,7 @@
     ]
   }
 ]
+
 
 
 
