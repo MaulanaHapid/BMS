@@ -618,39 +618,40 @@
       "img/apv 15 gx/page_9.jpg",
       "img/apv 15 gx/page_10.jpg"
     ]
-  },
+  }, 
   {
     "id": 21,
-    "nama": "NAN",
-    "merk": "NAN",
-    "tahun": "NAN",
-    "kilometer": "NAN",
-    "bahan_bakar": "NAN",
-    "transmisi": "NAN",
-    "kondisi": "NAN",
-    "interior": "NAN",
-    "eksterior": "NAN",
-    "stnk_bpkb": "NAN",
-    "drive_on": "NAN",
-    "tambahan": "NAN",
-    "warna": "NAN",
-    "harga": "NAN",
-    "status": "NAN",
-    "lokasi": "NAN",
+    "nama": "Jazz Rs Cvt",
+    "merk": "Honda",
+    "tahun": 2014.0,
+    "kilometer": 170000.0,
+    "bahan_bakar": "Bensin",
+    "transmisi": "Metik",
+    "kondisi": "super Mulus,Mesin Sehat,Ac dingin",
+    "interior": "Cover Jok",
+    "eksterior": "mulus rapih 100% bukan bekas tabrakan atau banjir",
+    "stnk_bpkb": "Lengkap Pajak ON",
+    "drive_on": "kaki-kaki senyap, mesin sehat, metik responsif, kelistrikan aktif",
+    "tambahan": "",
+    "warna": "Abu - Abu",
+    "harga": "173.000.000",
+    "status": "Tersedia",
+    "lokasi": "Subang",
     "gambar": [
-      "img/unknown/page_1.jpg",
-      "img/unknown/page_2.jpg",
-      "img/unknown/page_3.jpg",
-      "img/unknown/page_4.jpg",
-      "img/unknown/page_5.jpg",
-      "img/unknown/page_6.jpg",
-      "img/unknown/page_7.jpg",
-      "img/unknown/page_8.jpg",
-      "img/unknown/page_9.jpg",
-      "img/unknown/page_10.jpg"
+      "img/Jazz Rs Cvt/page_1.jpg",
+      "img/Jazz Rs Cvt/page_2.jpg",
+      "img/Jazz Rs Cvt/page_3.jpg",
+      "img/Jazz Rs Cvt/page_4.jpg",
+      "img/Jazz Rs Cvt/page_5.jpg",
+      "img/Jazz Rs Cvt/page_6.jpg",
+      "img/Jazz Rs Cvt/page_7.jpg",
+      "img/Jazz Rs Cvt/page_8.jpg",
+      "img/Jazz Rs Cvt/page_9.jpg",
+      "img/Jazz Rs Cvt/page_10.jpg"
     ]
   }
 ]
+
 
 
 
