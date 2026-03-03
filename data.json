@@ -139,7 +139,7 @@
     "tambahan": "0",
     "warna": "Silver",
     "harga": "138.000.000",
-    "status": "Tersedia",
+    "status": "TERJUAL",
     "lokasi": "Subang",
     "gambar": [
       "img/Brio E Mt 2018/page_1.jpg",
@@ -170,7 +170,7 @@
     "tambahan": "0",
     "warna": "Kuning",
     "harga": "123.000.000",
-    "status": "Tersedia",
+    "status": "Terjual",
     "lokasi": "Subang",
     "gambar": [
       "img/Ayla 1.0 X At 2021/page_1.jpg",
@@ -651,6 +651,7 @@
     ]
   }
 ]
+
 
 
 
