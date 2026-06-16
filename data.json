@@ -178,5 +178,69 @@
       "img/Yaris E Metik 2010/page_8.jpg",
       "img/Yaris E Metik 2010/page_9.jpg"
     ]
+  },
+  {
+    "id": 7,
+    "nama": "BRV E Prestige",
+    "merk": "Honda",
+    "tahun": 2016.0,
+    "kilometer": 167000.0,
+    "bahan_bakar": "Bensin",
+    "transmisi": "AT",
+    "kondisi": "super mulus,Rapih",
+    "interior": "Full ori",
+    "eksterior": "bebas laka banjir",
+    "stnk_bpkb": "STNK (Pajak on), BPKB, Faktur, Manual Book, Buku Service",
+    "drive_on": "Kaki-kaki senyap, ac dingin, mesin sehat(no overheat), ps aktif, kelistrikan aman, metik responsif",
+    "tambahan": "Cover Jok",
+    "warna": "Silver",
+    "harga": "165000000",
+    "status": "TERSEDIA",
+    "lokasi": "Bandung",
+    "gambar": [
+      "img/Brv E Prestige 2016/page_1.jpg",
+      "img/Brv E Prestige 2016/page_2.jpg",
+      "img/Brv E Prestige 2016/page_3.jpg",
+      "img/Brv E Prestige 2016/page_4.jpg",
+      "img/Brv E Prestige 2016/page_5.jpg",
+      "img/Brv E Prestige 2016/page_6.jpg",
+      "img/Brv E Prestige 2016/page_7.jpg",
+      "img/Brv E Prestige 2016/page_8.jpg",
+      "img/Brv E Prestige 2016/page_9.jpg"
+    ]
+  },
+  {
+    "id": 8,
+    "nama": "Grand Livina SV",
+    "merk": "Nissan",
+    "tahun": 2013.0,
+    "kilometer": 141000.0,
+    "bahan_bakar": "Bensin",
+    "transmisi": "MANUAL",
+    "kondisi": "super mulus,Rapih",
+    "interior": "Full ori",
+    "eksterior": "bebas laka banjir",
+    "stnk_bpkb": "STNK (Pajak on), BPKB, Faktur, Manual Book",
+    "drive_on": "Kaki-kaki senyap, ac dingin, mesin sehat(no overheat), PSPW aktif, kelistrikan aman",
+    "tambahan": "Cover Jok",
+    "warna": "Abu-Abu",
+    "harga": "95000000",
+    "status": "TERSEDIA",
+    "lokasi": "Bandung",
+    "gambar": [
+      "img/Grandlivina Sv Manual 2013/page_1.jpg",
+      "img/Grandlivina Sv Manual 2013/page_2.jpg",
+      "img/Grandlivina Sv Manual 2013/page_3.jpg",
+      "img/Grandlivina Sv Manual 2013/page_4.jpg",
+      "img/Grandlivina Sv Manual 2013/page_5.jpg",
+      "img/Grandlivina Sv Manual 2013/page_6.jpg",
+      "img/Grandlivina Sv Manual 2013/page_7.jpg",
+      "img/Grandlivina Sv Manual 2013/page_8.jpg",
+      "img/Grandlivina Sv Manual 2013/page_9.jpg",
+      "img/Grandlivina Sv Manual 2013/page_10.jpg",
+      "img/Grandlivina Sv Manual 2013/page_11.jpg"
+    ]
   }
+
+  
 ]
