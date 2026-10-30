@@ -278,7 +278,7 @@
           const whatsappNumber = "6281288011459";
           const message = encodeURIComponent(`Halo, saya tertarik dengan mobil ${mobil.nama}. Apakah masih tersedia?`);
           const btnHubungi = document.getElementById("btn-hubungi");
-          if (mobil.status === "Terjual") {
+          if (String(mobil.status).toLowerCase() === "terjual") {
             btnHubungi.classList.remove("btn-primary");
             btnHubungi.classList.add("btn-secondary");
             btnHubungi.textContent = "Terjual";

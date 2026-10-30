@@ -45,6 +45,11 @@ document.addEventListener("DOMContentLoaded", function () {
             // Validasi elemen utama, jika tidak ada, hentikan atau log warning
             if (!container || !pagination) return;
 
+            // Helper: harga bisa berupa teks "125.000.000" -> angka
+            const hargaAngka = (h) => parseInt(String(h).replace(/\D/g, ""), 10) || 0;
+            const isTerjual = (m) => String(m.status).toLowerCase() === "terjual";
+            const isTersedia = (m) => String(m.status).toLowerCase() === "tersedia";
+
             // Variabel2 global
             let selectedPriceFilter = "all";
             let selectedCategory = "all";
@@ -110,13 +115,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 const items = filteredList.slice(start, end);
 
                 items.forEach((mobil) => {
-                    const badgeClass = mobil.status === "Tersedia" ? "bg-success" : "bg-secondary";
-                    const disabled = mobil.status === "Terjual" ? "disabled" : "";
+                    const badgeClass = isTersedia(mobil) ? "bg-success" : "bg-secondary";
+                    const disabled = isTerjual(mobil) ? "disabled" : "";
                     const whatsappNumber = "6281288011459";
                     const message = encodeURIComponent(`Halo, saya tertarik dengan mobil ${mobil.nama}. Apakah masih tersedia?`);
-                    const btnHubungiClass = mobil.status === "Terjual" ? "btn-secondary" : "btn-success";
-                    const disabledAttr = mobil.status === "Terjual" ? "disabled" : "";
-                    const hubungiBtnHTML = mobil.status === "Terjual"
+                    const btnHubungiClass = isTerjual(mobil) ? "btn-secondary" : "btn-success";
+                    const disabledAttr = isTerjual(mobil) ? "disabled" : "";
+                    const hubungiBtnHTML = isTerjual(mobil)
                         ? `<button class="btn ${btnHubungiClass} flex-fill" disabled>Terjual</button>`
                         : `<a href="https://wa.me/${whatsappNumber}?text=${message}" target="_blank" rel="noopener noreferrer" class="btn ${btnHubungiClass} flex-fill" ${disabledAttr}>Hubungi</a>`;
 
@@ -221,7 +226,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     const matchesSearch = mobil.nama.toLowerCase().includes(searchTerm);
                     let matchesCategory = true;
                     let matchesPrice = true;
-                    let matchesStatus = mobil.status.toLowerCase() === "tersedia"; 
+                    let matchesStatus = isTersedia(mobil); 
 
                     if (category !== "all") {
                         matchesCategory = mobil.merk.toLowerCase() === category.toLowerCase();
@@ -229,13 +234,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     switch (selectedPriceFilter) {
                         case "lt50":
-                            matchesPrice = mobil.harga < 50000000;
+                            matchesPrice = hargaAngka(mobil.harga) < 50000000;
                             break;
                         case "50to100":
-                            matchesPrice = mobil.harga >= 50000000 && mobil.harga <= 100000000;
+                            matchesPrice = hargaAngka(mobil.harga) >= 50000000 && hargaAngka(mobil.harga) <= 100000000;
                             break;
                         case "100":
-                            matchesPrice = mobil.harga > 100000000;
+                            matchesPrice = hargaAngka(mobil.harga) > 100000000;
                             break;
                         default:
                             matchesPrice = true;
