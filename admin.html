@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>SEVEN AUTOS - Dashboard Admin</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+  <style>
+    .stat .label { font-size: .85rem; color: #6c757d; }
+    .stat .value { font-size: 1.6rem; font-weight: 700; line-height: 1.2; }
+    .thumb-cell { width: 72px; height: 48px; object-fit: cover; border-radius: 4px; background: #e9ecef; }
+    .img-tile { position: relative; width: 120px; }
+    .img-tile img { width: 120px; height: 80px; object-fit: cover; border-radius: 6px; border: 2px solid transparent; background: #e9ecef; }
+    .img-tile.cover img { border-color: #0d6efd; }
+    .img-tile .tools { display: flex; justify-content: space-between; margin-top: 4px; }
+    .img-tile .badge-cover { position: absolute; top: 4px; left: 4px; }
+    .img-tile .badge-new { position: absolute; top: 4px; right: 4px; }
+    .dropzone { border: 2px dashed #adb5bd; border-radius: 8px; padding: 1rem; text-align: center; color: #6c757d; cursor: pointer; }
+    .dropzone.over { border-color: #0d6efd; background: #e7f1ff; }
+    #dirtyBar { position: sticky; top: 0; z-index: 1030; }
+    td.nowrap, th.nowrap { white-space: nowrap; }
+    :focus-visible { outline: 3px solid #0d6efd; outline-offset: 2px; }
+  </style>
+</head>
+<body class="bg-light">
+
+<header class="bg-primary text-white shadow-sm">
+  <div class="container-xl d-flex align-items-center justify-content-between py-3 gap-2 flex-wrap">
+    <div class="d-flex align-items-center gap-3">
+      <span class="fs-4 fw-bold">SEVEN AUTOS</span>
+      <span class="badge text-bg-light">Admin</span>
+    </div>
+    <div class="d-flex gap-2 flex-wrap">
+      <a href="index.html" class="btn btn-outline-light btn-sm" target="_blank"><i class="bi bi-box-arrow-up-right"></i> Lihat situs</a>
+      <button class="btn btn-outline-light btn-sm" id="btnSettings"><i class="bi bi-gear"></i> Pengaturan GitHub</button>
+    </div>
+  </div>
+</header>
+
+<div id="dirtyBar" class="alert alert-warning rounded-0 border-0 border-bottom mb-0 py-2 d-none">
+  <div class="container-xl d-flex align-items-center justify-content-between gap-2 flex-wrap">
+    <span><i class="bi bi-exclamation-triangle"></i> Ada perubahan yang belum dipublish. Situs belum berubah.</span>
+    <div class="d-flex gap-2">
+      <button class="btn btn-sm btn-outline-dark" id="btnDownload"><i class="bi bi-download"></i> Unduh data.json</button>
+      <button class="btn btn-sm btn-dark" id="btnPublish"><i class="bi bi-cloud-upload"></i> Publish ke situs</button>
+    </div>
+  </div>
+</div>
+
+<main class="container-xl py-4">
+
+  <!-- Ringkasan -->
+  <div class="row g-3 mb-4" id="stats"></div>
+
+  <!-- Toolbar -->
+  <div class="card shadow-sm mb-3">
+    <div class="card-body">
+      <div class="row g-2 align-items-center">
+        <div class="col-12 col-md-4">
+          <input type="search" id="q" class="form-control" placeholder="Cari nama, merek, warna..." aria-label="Cari mobil" />
+        </div>
+        <div class="col-6 col-md-2">
+          <select id="fStatus" class="form-select" aria-label="Filter status">
+            <option value="">Semua status</option>
+            <option value="TERSEDIA">Tersedia</option>
+            <option value="TERJUAL">Terjual</option>
+          </select>
+        </div>
+        <div class="col-6 col-md-2">
+          <select id="fBrand" class="form-select" aria-label="Filter merek"><option value="">Semua merek</option></select>
+        </div>
+        <div class="col-12 col-md-4 d-flex gap-2 justify-content-md-end">
+          <button class="btn btn-outline-secondary" id="btnLoadFile" title="Muat data.json dari komputer"><i class="bi bi-folder2-open"></i> Buka file</button>
+          <button class="btn btn-primary" id="btnAdd"><i class="bi bi-plus-lg"></i> Tambah mobil</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tabel -->
+  <div class="card shadow-sm">
+    <div class="table-responsive">
+      <table class="table table-hover align-middle mb-0">
+        <thead class="table-light">
+          <tr>
+            <th class="nowrap">Foto</th>
+            <th>Mobil</th>
+            <th class="nowrap">Tahun</th>
+            <th class="nowrap text-end">KM</th>
+            <th class="nowrap text-end">Harga</th>
+            <th class="nowrap">Status</th>
+            <th class="nowrap text-end">Aksi</th>
+          </tr>
+        </thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+    <div id="empty" class="text-center text-muted py-5 d-none">
+      Tidak ada mobil yang cocok. Ubah pencarian atau klik <strong>Tambah mobil</strong>.
+    </div>
+  </div>
+</main>
+
+<!-- Modal mobil -->
+<div class="modal fade" id="carModal" tabindex="-1" aria-labelledby="carModalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-scrollable">
+    <form class="modal-content" id="carForm" autocomplete="off">
+      <div class="modal-header">
+        <h5 class="modal-title" id="carModalTitle">Tambah mobil</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row g-3">
+          <div class="col-md-5"><label class="form-label" for="f_nama">Nama / tipe</label>
+            <input class="form-control" id="f_nama" required placeholder="mis. Yaris E" /></div>
+          <div class="col-md-3"><label class="form-label" for="f_merk">Merek</label>
+            <input class="form-control" id="f_merk" list="brandList" required placeholder="mis. Toyota" />
+            <datalist id="brandList"></datalist></div>
+          <div class="col-6 col-md-2"><label class="form-label" for="f_tahun">Tahun</label>
+            <input class="form-control" id="f_tahun" type="number" min="1950" max="2100" required /></div>
+          <div class="col-6 col-md-2"><label class="form-label" for="f_warna">Warna</label>
+            <input class="form-control" id="f_warna" /></div>
+
+          <div class="col-6 col-md-3"><label class="form-label" for="f_harga">Harga (Rp)</label>
+            <input class="form-control" id="f_harga" inputmode="numeric" required placeholder="125.000.000" /></div>
+          <div class="col-6 col-md-3"><label class="form-label" for="f_kilometer">Kilometer</label>
+            <input class="form-control" id="f_kilometer" type="number" min="0" /></div>
+          <div class="col-6 col-md-2"><label class="form-label" for="f_bahan_bakar">Bahan bakar</label>
+            <select class="form-select" id="f_bahan_bakar"><option>Bensin</option><option>Diesel</option><option>Hybrid</option><option>Listrik</option></select></div>
+          <div class="col-6 col-md-2"><label class="form-label" for="f_transmisi">Transmisi</label>
+            <select class="form-select" id="f_transmisi"><option>OTOMATIS</option><option>MANUAL</option></select></div>
+          <div class="col-6 col-md-2"><label class="form-label" for="f_status">Status</label>
+            <select class="form-select" id="f_status"><option value="TERSEDIA">Tersedia</option><option value="TERJUAL">Terjual</option></select></div>
+
+          <div class="col-md-4"><label class="form-label" for="f_lokasi">Lokasi</label>
+            <input class="form-control" id="f_lokasi" value="Bandung" /></div>
+          <div class="col-md-4"><label class="form-label" for="f_kondisi">Kondisi</label>
+            <input class="form-control" id="f_kondisi" placeholder="super mulus,Rapih" /></div>
+          <div class="col-md-4"><label class="form-label" for="f_interior">Interior</label>
+            <input class="form-control" id="f_interior" placeholder="Full ori" /></div>
+          <div class="col-md-6"><label class="form-label" for="f_eksterior">Eksterior</label>
+            <input class="form-control" id="f_eksterior" placeholder="bebas laka banjir" /></div>
+          <div class="col-md-6"><label class="form-label" for="f_tambahan">Tambahan</label>
+            <input class="form-control" id="f_tambahan" placeholder="-" /></div>
+          <div class="col-md-6"><label class="form-label" for="f_stnk_bpkb">Kelengkapan (STNK / BPKB)</label>
+            <textarea class="form-control" id="f_stnk_bpkb" rows="2" placeholder="Stnk(pajak on),Bpkb,Faktur,buku service"></textarea>
+            <div class="form-text">Pisahkan dengan koma.</div></div>
+          <div class="col-md-6"><label class="form-label" for="f_drive_on">Drive on</label>
+            <textarea class="form-control" id="f_drive_on" rows="2" placeholder="Kaki-kaki senyap,ac dingin,..."></textarea>
+            <div class="form-text">Pisahkan dengan koma.</div></div>
+
+          <div class="col-12">
+            <label class="form-label mb-1">Foto <span class="text-muted small">(foto pertama jadi sampul)</span></label>
+            <div class="dropzone" id="dropzone" tabindex="0" role="button" aria-label="Pilih atau seret foto ke sini">
+              <i class="bi bi-images fs-4"></i><br />Klik atau seret foto ke sini. Foto otomatis diperkecil (maks. 1600 px) agar situs tetap ringan.
+            </div>
+            <input type="file" id="fileInput" accept="image/*" multiple hidden />
+            <div class="d-flex flex-wrap gap-3 mt-3" id="imgList"></div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Batal</button>
+        <button type="submit" class="btn btn-primary">Simpan mobil</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Modal pengaturan GitHub -->
+<div class="modal fade" id="settingsModal" tabindex="-1" aria-labelledby="settingsTitle" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="settingsTitle">Pengaturan GitHub</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+      </div>
+      <div class="modal-body">
+        <p class="small text-muted">Dipakai untuk menyimpan <code>data.json</code> dan foto langsung ke repo, lalu GitHub Pages memperbarui situs. Disimpan hanya di browser ini.</p>
+        <div class="row g-3">
+          <div class="col-6"><label class="form-label" for="s_owner">Pemilik repo</label><input class="form-control" id="s_owner" placeholder="username-github" /></div>
+          <div class="col-6"><label class="form-label" for="s_repo">Nama repo</label><input class="form-control" id="s_repo" placeholder="BMS" /></div>
+          <div class="col-6"><label class="form-label" for="s_branch">Branch</label><input class="form-control" id="s_branch" placeholder="main" /></div>
+          <div class="col-12"><label class="form-label" for="s_token">Personal access token</label>
+            <input class="form-control" id="s_token" type="password" autocomplete="off" placeholder="github_pat_..." />
+            <div class="form-text">Buat fine-grained token di GitHub &rarr; Settings &rarr; Developer settings. Pilih hanya repo ini, izin <strong>Contents: Read and write</strong>.</div></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline-danger me-auto" id="btnClearSettings">Hapus token</button>
+        <button class="btn btn-primary" id="btnSaveSettings">Simpan</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal konfirmasi hapus -->
+<div class="modal fade" id="delModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-sm"><div class="modal-content">
+    <div class="modal-body" id="delText"></div>
+    <div class="modal-footer">
+      <button class="btn btn-outline-secondary" data-bs-dismiss="modal">Batal</button>
+      <button class="btn btn-danger" id="btnConfirmDel">Hapus</button>
+    </div>
+  </div></div>
+</div>
+
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+  <div id="toast" class="toast align-items-center border-0" role="status" aria-live="polite">
+    <div class="d-flex"><div class="toast-body" id="toastBody"></div>
+      <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Tutup"></button></div>
+  </div>
+</div>
+
+<input type="file" id="jsonFile" accept="application/json,.json" hidden />
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+(() => {
+  'use strict';
+
+  // ---------- State ----------
+  let cars = [];            // isi data.json
+  let pending = {};         // path foto baru -> dataURL (belum di-upload)
+  let dirty = false;
+  let editingId = null;     // null = mobil baru
+  let formImages = [];      // daftar path foto di form
+  let deleteId = null;
+
+  const $ = (id) => document.getElementById(id);
+  const FIELDS = ['nama','merk','tahun','warna','harga','kilometer','bahan_bakar','transmisi','status','lokasi','kondisi','interior','eksterior','tambahan','stnk_bpkb','drive_on'];
+  const carModal = new bootstrap.Modal($('carModal'));
+  const settingsModal = new bootstrap.Modal($('settingsModal'));
+  const delModal = new bootstrap.Modal($('delModal'));
+
+  // ---------- Helpers ----------
+  const priceNum = (h) => parseInt(String(h ?? '').replace(/\D/g, ''), 10) || 0;
+  const fmtNum = (n) => Number(n || 0).toLocaleString('id-ID');
+  const fmtRp = (n) => 'Rp ' + fmtNum(n);
+  const fmtJuta = (n) => n >= 1e9 ? 'Rp ' + (n / 1e9).toLocaleString('id-ID', { maximumFractionDigits: 2 }) + ' M'
+                                  : 'Rp ' + Math.round(n / 1e6).toLocaleString('id-ID') + ' jt';
+  const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const isSold = (c) => String(c.status).toUpperCase() === 'TERJUAL';
+  const imgSrc = (p) => pending[p] || p;
+
+  function toast(msg, type = 'dark') {
+    const el = $('toast');
+    el.className = 'toast align-items-center border-0 text-bg-' + type;
+    $('toastBody').textContent = msg;
+    bootstrap.Toast.getOrCreateInstance(el, { delay: 3500 }).show();
+  }
+  function setDirty(v) {
+    dirty = v;
+    $('dirtyBar').classList.toggle('d-none', !v);
+    if (v) { try { localStorage.setItem('bms_draft', JSON.stringify(cars)); } catch (e) {} }
+    else { try { localStorage.removeItem('bms_draft'); } catch (e) {} }
+  }
+  window.addEventListener('beforeunload', (e) => { if (dirty) { e.preventDefault(); e.returnValue = ''; } });
+
+  // ---------- Load ----------
+  async function load() {
+    let draft = null;
+    try { draft = JSON.parse(localStorage.getItem('bms_draft') || 'null'); } catch (e) {}
+    try {
+      const res = await fetch('data.json', { cache: 'no-store' });
+      if (!res.ok) throw new Error(res.status);
+      cars = await res.json();
+    } catch (e) {
+      cars = [];
+      toast('data.json tidak bisa dimuat otomatis. Klik "Buka file" atau jalankan lewat server/GitHub Pages.', 'warning');
+    }
+    if (draft && Array.isArray(draft) && JSON.stringify(draft) !== JSON.stringify(cars)) {
+      if (confirm('Ada draf perubahan yang belum dipublish dari sesi sebelumnya. Pulihkan draf itu?\n\n(Foto baru yang belum dipublish tidak ikut tersimpan di draf.)')) {
+        cars = draft; setDirty(true);
+      } else { setDirty(false); }
+    }
+    render();
+  }
+
+  // ---------- Render ----------
+  function render() {
+    renderStats(); renderBrandFilter(); renderRows();
+  }
+
+  function renderStats() {
+    const avail = cars.filter((c) => !isSold(c));
+    const sold = cars.length - avail.length;
+    const stock = avail.reduce((s, c) => s + priceNum(c.harga), 0);
+    const noPhoto = cars.filter((c) => !(c.gambar && c.gambar.length)).length;
+    const items = [
+      ['Total mobil', cars.length, ''],
+      ['Tersedia', avail.length, 'text-success'],
+      ['Terjual', sold, 'text-secondary'],
+      ['Nilai stok tersedia', fmtJuta(stock), ''],
+      ['Belum ada foto', noPhoto, noPhoto ? 'text-danger' : '']
+    ];
+    $('stats').innerHTML = items.map(([l, v, cls]) => `
+      <div class="col-6 col-md"><div class="card shadow-sm stat h-100"><div class="card-body">
+        <div class="label">${l}</div><div class="value ${cls}">${v}</div></div></div></div>`).join('');
+  }
+
+  function brands() { return [...new Set(cars.map((c) => c.merk).filter(Boolean))].sort((a, b) => a.localeCompare(b)); }
+
+  function renderBrandFilter() {
+    const cur = $('fBrand').value;
+    $('fBrand').innerHTML = '<option value="">Semua merek</option>' + brands().map((b) => `<option>${esc(b)}</option>`).join('');
+    $('fBrand').value = brands().includes(cur) ? cur : '';
+    $('brandList').innerHTML = brands().map((b) => `<option value="${esc(b)}">`).join('');
+  }
+
+  function renderRows() {
+    const q = $('q').value.trim().toLowerCase();
+    const st = $('fStatus').value, br = $('fBrand').value;
+    const list = cars.filter((c) =>
+      (!st || String(c.status).toUpperCase() === st) &&
+      (!br || c.merk === br) &&
+      (!q || [c.nama, c.merk, c.warna, c.tahun, c.lokasi].join(' ').toLowerCase().includes(q))
+    ).sort((a, b) => b.id - a.id);
+
+    $('empty').classList.toggle('d-none', list.length > 0);
+    $('rows').innerHTML = list.map((c) => {
+      const cover = c.gambar && c.gambar[0];
+      const sold = isSold(c);
+      return `<tr>
+        <td>${cover ? `<img class="thumb-cell" src="${esc(imgSrc(cover))}" alt="" loading="lazy">` : '<div class="thumb-cell d-flex align-items-center justify-content-center text-muted"><i class="bi bi-image"></i></div>'}</td>
+        <td><div class="fw-semibold">${esc(c.merk)} ${esc(c.nama)}</div>
+            <div class="small text-muted">${esc(c.warna || '-')} &middot; ${esc(c.transmisi)} &middot; ${esc(c.lokasi || '-')} &middot; ${(c.gambar || []).length} foto</div></td>
+        <td class="nowrap">${esc(c.tahun)}</td>
+        <td class="nowrap text-end">${fmtNum(c.kilometer)}</td>
+        <td class="nowrap text-end fw-semibold">${fmtRp(priceNum(c.harga))}</td>
+        <td class="nowrap"><span class="badge ${sold ? 'text-bg-secondary' : 'text-bg-success'}">${sold ? 'Terjual' : 'Tersedia'}</span></td>
+        <td class="nowrap text-end">
+          <button class="btn btn-sm btn-outline-${sold ? 'success' : 'secondary'}" data-act="toggle" data-id="${c.id}" title="${sold ? 'Tandai tersedia' : 'Tandai terjual'}">
+            <i class="bi bi-${sold ? 'arrow-counterclockwise' : 'check2-circle'}"></i></button>
+          <button class="btn btn-sm btn-outline-primary" data-act="edit" data-id="${c.id}" title="Edit"><i class="bi bi-pencil"></i></button>
+          <button class="btn btn-sm btn-outline-danger" data-act="del" data-id="${c.id}" title="Hapus"><i class="bi bi-trash"></i></button>
+        </td></tr>`;
+    }).join('');
+  }
+
+  $('rows').addEventListener('click', (e) => {
+    const b = e.target.closest('button[data-act]'); if (!b) return;
+    const id = Number(b.dataset.id), car = cars.find((c) => c.id === id); if (!car) return;
+    if (b.dataset.act === 'edit') openForm(car);
+    if (b.dataset.act === 'toggle') {
+      car.status = isSold(car) ? 'TERSEDIA' : 'TERJUAL';
+      setDirty(true); render();
+      toast(`${car.nama} ditandai ${isSold(car) ? 'terjual' : 'tersedia'}.`);
+    }
+    if (b.dataset.act === 'del') {
+      deleteId = id;
+      $('delText').innerHTML = `Hapus <strong>${esc(car.merk)} ${esc(car.nama)}</strong> dari daftar? Foto di repo tidak ikut terhapus.`;
+      delModal.show();
+    }
+  });
+  $('btnConfirmDel').addEventListener('click', () => {
+    cars = cars.filter((c) => c.id !== deleteId);
+    setDirty(true); delModal.hide(); render(); toast('Mobil dihapus dari daftar.');
+  });
+  ['q', 'fStatus', 'fBrand'].forEach((id) => $(id).addEventListener('input', renderRows));
+
+  // ---------- Form ----------
+  function openForm(car) {
+    editingId = car ? car.id : null;
+    $('carModalTitle').textContent = car ? `Edit ${car.merk} ${car.nama}` : 'Tambah mobil';
+    const d = car || { bahan_bakar: 'Bensin', transmisi: 'OTOMATIS', status: 'TERSEDIA', lokasi: 'Bandung', tambahan: '-', gambar: [] };
+    FIELDS.forEach((f) => { $('f_' + f).value = d[f] ?? ''; });
+    if (car) $('f_status').value = isSold(car) ? 'TERJUAL' : 'TERSEDIA';
+    formImages = [...(d.gambar || [])];
+    renderImages();
+    carModal.show();
+  }
+  $('btnAdd').addEventListener('click', () => openForm(null));
+
+  $('f_harga').addEventListener('input', (e) => {
+    const n = e.target.value.replace(/\D/g, '');
+    e.target.value = n ? Number(n).toLocaleString('id-ID') : '';
+  });
+
+  function renderImages() {
+    $('imgList').innerHTML = formImages.map((p, i) => `
+      <div class="img-tile ${i === 0 ? 'cover' : ''}">
+        <img src="${esc(imgSrc(p))}" alt="Foto ${i + 1}">
+        ${i === 0 ? '<span class="badge text-bg-primary badge-cover">Sampul</span>' : ''}
+        ${pending[p] ? '<span class="badge text-bg-warning badge-new">Baru</span>' : ''}
+        <div class="tools">
+          <button type="button" class="btn btn-sm btn-light border" data-i="${i}" data-a="left" ${i === 0 ? 'disabled' : ''} aria-label="Geser ke kiri"><i class="bi bi-arrow-left"></i></button>
+          <button type="button" class="btn btn-sm btn-light border" data-i="${i}" data-a="cover" ${i === 0 ? 'disabled' : ''} aria-label="Jadikan sampul"><i class="bi bi-star"></i></button>
+          <button type="button" class="btn btn-sm btn-light border text-danger" data-i="${i}" data-a="rm" aria-label="Hapus foto"><i class="bi bi-x-lg"></i></button>
+        </div>
+      </div>`).join('') || '<div class="text-muted small">Belum ada foto.</div>';
+  }
+  $('imgList').addEventListener('click', (e) => {
+    const b = e.target.closest('button[data-a]'); if (!b) return;
+    const i = Number(b.dataset.i), a = b.dataset.a;
+    if (a === 'rm') { const [p] = formImages.splice(i, 1); if (pending[p]) delete pending[p]; }
+    if (a === 'left' && i > 0) [formImages[i - 1], formImages[i]] = [formImages[i], formImages[i - 1]];
+    if (a === 'cover' && i > 0) formImages.unshift(formImages.splice(i, 1)[0]);
+    renderImages();
+  });
+
+  // Folder foto: ikuti pola yang sudah ada, mis. "img/Bmw E90 320i At 2008/page_1.jpg"
+  function folderFor() {
+    const existing = formImages.find((p) => /^img\/[^/]+\/page_\d+\.jpg$/i.test(p));
+    if (existing) return existing.split('/')[1];
+    const name = `${$('f_merk').value} ${$('f_nama').value} ${$('f_tahun').value}`.trim()
+      .replace(/[^\w\s.\-]/g, '').replace(/\s+/g, ' ');
+    return name || 'mobil-' + Date.now();
+  }
+  function nextPath(folder) {
+    const used = [...formImages, ...Object.keys(pending)]
+      .map((p) => { const m = p.match(new RegExp('^img/' + folder.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '/page_(\\d+)\\.jpg$', 'i')); return m ? Number(m[1]) : 0; });
+    return `img/${folder}/page_${Math.max(0, ...used) + 1}.jpg`;
+  }
+
+  function resizeToJpeg(file, maxSide = 1600, quality = 0.85) {
+    return new Promise((resolve, reject) => {
+      const url = URL.createObjectURL(file);
+      const img = new Image();
+      img.onload = () => {
+        const s = Math.min(1, maxSide / Math.max(img.width, img.height));
+        const c = document.createElement('canvas');
+        c.width = Math.round(img.width * s); c.height = Math.round(img.height * s);
+        const ctx = c.getContext('2d');
+        ctx.fillStyle = '#fff'; ctx.fillRect(0, 0, c.width, c.height);
+        ctx.drawImage(img, 0, 0, c.width, c.height);
+        URL.revokeObjectURL(url);
+        resolve(c.toDataURL('image/jpeg', quality));
+      };
+      img.onerror = () => { URL.revokeObjectURL(url); reject(new Error('Bukan file gambar: ' + file.name)); };
+      img.src = url;
+    });
+  }
+  async function addFiles(files) {
+    if (!$('f_nama').value.trim() && !formImages.length) { toast('Isi nama, merek, dan tahun dulu agar folder foto rapi.', 'warning'); return; }
+    const folder = folderFor();
+    const list = [...files].filter((f) => f.type.startsWith('image/')).sort((a, b) => a.name.localeCompare(b.name, undefined, { numeric: true }));
+    for (const f of list) {
+      try {
+        const data = await resizeToJpeg(f);
+        const path = nextPath(folder);
+        pending[path] = data; formImages.push(path);
+      } catch (err) { toast(err.message, 'danger'); }
+    }
+    renderImages();
+  }
+  $('dropzone').addEventListener('click', () => $('fileInput').click());
+  $('dropzone').addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); $('fileInput').click(); } });
+  $('fileInput').addEventListener('change', (e) => { addFiles(e.target.files); e.target.value = ''; });
+  ['dragenter', 'dragover'].forEach((ev) => $('dropzone').addEventListener(ev, (e) => { e.preventDefault(); $('dropzone').classList.add('over'); }));
+  ['dragleave', 'drop'].forEach((ev) => $('dropzone').addEventListener(ev, (e) => { e.preventDefault(); $('dropzone').classList.remove('over'); }));
+  $('dropzone').addEventListener('drop', (e) => addFiles(e.dataTransfer.files));
+
+  $('carForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const rec = {};
+    FIELDS.forEach((f) => { rec[f] = $('f_' + f).value.trim(); });
+    rec.tahun = Number(rec.tahun) || 0;
+    rec.kilometer = Number(rec.kilometer) || 0;
+    rec.harga = rec.harga || '0';           // format teks "125.000.000", sama seperti data lama
+    if (!rec.tambahan) rec.tambahan = '-';
+    const id = editingId ?? (Math.max(0, ...cars.map((c) => c.id)) + 1);
+    const full = { id, ...rec, gambar: [...formImages] };
+    if (editingId == null) cars.push(full);
+    else cars = cars.map((c) => (c.id === editingId ? { ...c, ...full } : c));
+    // buang foto baru yang tidak dipakai lagi
+    const used = new Set(cars.flatMap((c) => c.gambar || []));
+    Object.keys(pending).forEach((p) => { if (!used.has(p)) delete pending[p]; });
+    setDirty(true); carModal.hide(); render();
+    toast(editingId == null ? 'Mobil ditambahkan. Klik Publish untuk menayangkan.' : 'Perubahan disimpan. Klik Publish untuk menayangkan.', 'success');
+  });
+
+  // ---------- Buka file / Unduh ----------
+  $('btnLoadFile').addEventListener('click', () => $('jsonFile').click());
+  $('jsonFile').addEventListener('change', async (e) => {
+    const f = e.target.files[0]; if (!f) return;
+    try {
+      const data = JSON.parse(await f.text());
+      if (!Array.isArray(data)) throw new Error('Isi file harus berupa daftar mobil (array).');
+      cars = data; pending = {}; setDirty(true); render(); toast('data.json dimuat.', 'success');
+    } catch (err) { toast('File tidak valid: ' + err.message, 'danger'); }
+    e.target.value = '';
+  });
+
+  const jsonText = () => JSON.stringify(cars, null, 2) + '\n';
+  $('btnDownload').addEventListener('click', () => {
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob([jsonText()], { type: 'application/json' }));
+    a.download = 'data.json'; a.click(); URL.revokeObjectURL(a.href);
+    const n = Object.keys(pending).length;
+    toast(n ? `data.json diunduh. ${n} foto baru perlu diunggah manual ke repo.` : 'data.json diunduh.');
+  });
+
+  // ---------- GitHub ----------
+  const getSet = () => { try { return JSON.parse(localStorage.getItem('bms_gh') || '{}'); } catch (e) { return {}; } };
+  function fillSettings() {
+    const s = getSet();
+    $('s_owner').value = s.owner || ''; $('s_repo').value = s.repo || '';
+    $('s_branch').value = s.branch || 'main'; $('s_token').value = s.token || '';
+  }
+  $('btnSettings').addEventListener('click', () => { fillSettings(); settingsModal.show(); });
+  $('btnSaveSettings').addEventListener('click', () => {
+    const s = { owner: $('s_owner').value.trim(), repo: $('s_repo').value.trim(), branch: $('s_branch').value.trim() || 'main', token: $('s_token').value.trim() };
+    localStorage.setItem('bms_gh', JSON.stringify(s)); settingsModal.hide(); toast('Pengaturan disimpan.', 'success');
+  });
+  $('btnClearSettings').addEventListener('click', () => { localStorage.removeItem('bms_gh'); fillSettings(); toast('Token dihapus dari browser ini.'); });
+
+  async function gh(path, opts = {}) {
+    const s = getSet();
+    const res = await fetch(`https://api.github.com/repos/${s.owner}/${s.repo}${path}`, {
+      ...opts,
+      headers: { Accept: 'application/vnd.github+json', Authorization: 'Bearer ' + s.token, 'Content-Type': 'application/json' }
+    });
+    if (!res.ok) {
+      let msg = res.status + ''; try { msg += ' ' + (await res.json()).message; } catch (e) {}
+      throw new Error(msg);
+    }
+    return res.json();
+  }
+
+  $('btnPublish').addEventListener('click', async () => {
+    const s = getSet();
+    if (!s.owner || !s.repo || !s.token) { fillSettings(); settingsModal.show(); toast('Isi pengaturan GitHub dulu.', 'warning'); return; }
+    const btn = $('btnPublish'); btn.disabled = true;
+    const orig = btn.innerHTML; btn.innerHTML = '<span class="spinner-border spinner-border-sm"></span> Mempublish...';
+    try {
+      const used = new Set(cars.flatMap((c) => c.gambar || []));
+      const newPaths = Object.keys(pending).filter((p) => used.has(p));
+
+      const ref = await gh(`/git/ref/heads/${encodeURIComponent(s.branch)}`);
+      const baseSha = ref.object.sha;
+      const baseCommit = await gh(`/git/commits/${baseSha}`);
+
+      const tree = [];
+      for (const p of newPaths) {
+        const blob = await gh('/git/blobs', { method: 'POST', body: JSON.stringify({ content: pending[p].split(',')[1], encoding: 'base64' }) });
+        tree.push({ path: p, mode: '100644', type: 'blob', sha: blob.sha });
+      }
+      const jb = await gh('/git/blobs', { method: 'POST', body: JSON.stringify({ content: jsonText(), encoding: 'utf-8' }) });
+      tree.push({ path: 'data.json', mode: '100644', type: 'blob', sha: jb.sha });
+
+      const newTree = await gh('/git/trees', { method: 'POST', body: JSON.stringify({ base_tree: baseCommit.tree.sha, tree }) });
+      const commit = await gh('/git/commits', { method: 'POST', body: JSON.stringify({
+        message: `Update katalog dari dashboard (${cars.length} mobil${newPaths.length ? ', ' + newPaths.length + ' foto baru' : ''})`,
+        tree: newTree.sha, parents: [baseSha] }) });
+      await gh(`/git/refs/heads/${encodeURIComponent(s.branch)}`, { method: 'PATCH', body: JSON.stringify({ sha: commit.sha }) });
+
+      pending = {}; setDirty(false); render();
+      toast('Berhasil dipublish. Situs diperbarui dalam 1-2 menit.', 'success');
+    } catch (err) {
+      toast('Gagal publish: ' + err.message + '. Cek token, nama repo, dan branch.', 'danger');
+    } finally { btn.disabled = false; btn.innerHTML = orig; }
+  });
+
+  load();
+})();
+</script>
+</body>
+</html>
