@@ -115,7 +115,7 @@
       "img/Ertiga Gx At 2015/page_6.jpg",
       "img/Ertiga Gx At 2015/page_7.jpg",
       "img/Ertiga Gx At 2015/page_8.jpg"
-      ]
+    ]
   },
   {
     "id": 5,
@@ -290,6 +290,26 @@
     "harga": "135.000.000",
     "status": "TERSEDIA",
     "lokasi": "Bandung",
+    "gambar": []
+  },
+  {
+    "id": 12,
+    "nama": "q",
+    "merk": "a",
+    "tahun": 2022,
+    "warna": "a",
+    "harga": "1",
+    "kilometer": 1,
+    "bahan_bakar": "Bensin",
+    "transmisi": "OTOMATIS",
+    "status": "TERSEDIA",
+    "lokasi": "Bandung",
+    "kondisi": "",
+    "interior": "",
+    "eksterior": "",
+    "tambahan": "-",
+    "stnk_bpkb": "",
+    "drive_on": "",
     "gambar": []
   }
 ]
