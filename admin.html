@@ -226,6 +226,7 @@
   let pending = {};         // path foto baru -> dataURL (belum di-upload)
   let dirty = false;
   let editingId = null;     // null = mobil baru
+  let formId = null;        // id mobil yang sedang diisi (baru atau lama)
   let formImages = [];      // daftar path foto di form
   let deleteId = null;
 
@@ -364,6 +365,7 @@
   // ---------- Form ----------
   function openForm(car) {
     editingId = car ? car.id : null;
+    formId = car ? car.id : Math.max(0, ...cars.map((c) => c.id)) + 1;
     $('carModalTitle').textContent = car ? `Edit ${car.merk} ${car.nama}` : 'Tambah mobil';
     const d = car || { bahan_bakar: 'Bensin', transmisi: 'OTOMATIS', status: 'TERSEDIA', lokasi: 'Bandung', tambahan: '-', gambar: [] };
     FIELDS.forEach((f) => { $('f_' + f).value = d[f] ?? ''; });
@@ -401,18 +403,22 @@
     renderImages();
   });
 
-  // Folder foto: ikuti pola yang sudah ada, mis. "img/Bmw E90 320i At 2008/page_1.jpg"
+  // Folder foto: mobil lama tetap memakai folder lamanya.
+  // Mobil baru dapat folder unik berbasis id, mis. "img/12-toyota-yaris-e-2010/page_1.jpg",
+  // jadi dua mobil dengan nama sama tidak akan berbagi folder.
   function folderFor() {
     const existing = formImages.find((p) => /^img\/[^/]+\/page_\d+\.jpg$/i.test(p));
     if (existing) return existing.split('/')[1];
-    const name = `${$('f_merk').value} ${$('f_nama').value} ${$('f_tahun').value}`.trim()
-      .replace(/[^\w\s.\-]/g, '').replace(/\s+/g, ' ');
-    return name || 'mobil-' + Date.now();
+    const slug = `${$('f_merk').value} ${$('f_nama').value} ${$('f_tahun').value}`.toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+    return `${formId}-${slug || 'mobil'}`;
   }
+  // Nomor foto berikutnya: cek SEMUA mobil + foto baru, supaya tidak pernah menimpa file yang sudah ada.
   function nextPath(folder) {
-    const used = [...formImages, ...Object.keys(pending)]
-      .map((p) => { const m = p.match(new RegExp('^img/' + folder.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '/page_(\\d+)\\.jpg$', 'i')); return m ? Number(m[1]) : 0; });
-    return `img/${folder}/page_${Math.max(0, ...used) + 1}.jpg`;
+    const prefix = `img/${folder}/page_`;
+    const taken = [...cars.flatMap((c) => c.gambar || []), ...formImages, ...Object.keys(pending)];
+    const nums = taken.filter((p) => p.startsWith(prefix)).map((p) => parseInt(p.slice(prefix.length), 10) || 0);
+    return `${prefix}${Math.max(0, ...nums) + 1}.jpg`;
   }
 
   function resizeToJpeg(file, maxSide = 1600, quality = 0.85) {
@@ -461,7 +467,7 @@
     rec.kilometer = Number(rec.kilometer) || 0;
     rec.harga = rec.harga || '0';           // format teks "125.000.000", sama seperti data lama
     if (!rec.tambahan) rec.tambahan = '-';
-    const id = editingId ?? (Math.max(0, ...cars.map((c) => c.id)) + 1);
+    const id = formId;
     const full = { id, ...rec, gambar: [...formImages] };
     if (editingId == null) cars.push(full);
     else cars = cars.map((c) => (c.id === editingId ? { ...c, ...full } : c));
